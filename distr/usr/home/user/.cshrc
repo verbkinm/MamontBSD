@@ -42,7 +42,3 @@ if ($?prompt) then
 	endif
 
 endif
-
-if ( $tty == "ttyv7" ) then
-	htop
-endif

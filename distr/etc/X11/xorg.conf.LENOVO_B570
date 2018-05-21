@@ -1,0 +1,183 @@
+Section "ServerLayout"
+	Identifier     "X.org Configured"
+	Screen      0  "Screen0" 0 0
+	#Screen      1  "Screen1" RightOf "Screen0"
+    InputDevice    "Mouse2" "CorePointer"
+    InputDevice    "Mouse0" "AlwaysCore"
+	InputDevice    "Keyboard0" "CoreKeyboard"
+EndSection
+
+Section "Files"
+	ModulePath   "/usr/local/lib/xorg/modules"
+	FontPath     "/usr/local/share/fonts/misc/"
+	FontPath     "/usr/local/share/fonts/TTF/"
+	FontPath     "/usr/local/share/fonts/OTF/"
+	FontPath     "/usr/local/share/fonts/Type1/"
+	FontPath     "/usr/local/share/fonts/100dpi/"
+	FontPath     "/usr/local/share/fonts/75dpi/"
+	FontPath     "/usr/local/share/fonts/dejavu/"
+	FontPath     "/usr/local/share/fonts/LinLibertionoG/"
+	FontPath     "/usr/local/share/fonts/Liberation/"
+	FontPath     "/usr/local/share/fonts/GentiumBasic/"
+	FontPath     "/usr/local/share/fonts/Carlito/"
+	FontPath     "/usr/local/share/fonts/Caladea/"
+EndSection
+
+Section "Module"
+	Load  "glx"
+	Load  "freetype"
+	Load  "dri"
+EndSection
+
+Section "InputDevice"
+	Identifier  "Keyboard0"
+	Driver      "kbd"
+EndSection
+
+Section "InputClass"
+    Identifier         "Keyboard Defaults"
+    MatchIsKeyboard    "yes"
+    Option         "XkbLayout" "us, ru(winkeys)"
+    Option         "XkbOptions" "grp:caps_toggle, grp_led:scroll, terminate:ctrl_alt_bksp"
+EndSection
+
+Section "InputDevice"
+    Driver        "synaptics"
+    Identifier    "Mouse2"
+    Option        "Protocol" "psm"
+    Option        "Device"        "/dev/psm0"
+    Option        "Edges"         "1900 5400 1800 3900"
+    Option        "Finger"        "25 30"
+    Option        "MaxTapTime" "10"
+    Option        "MaxTapMove" "220"
+    Option        "VertScrollDelta" "100"
+    
+#    MatchIsTouchpad "yes"                           # required
+    Option          "MinSpeed"              "0.5"
+    Option          "MaxSpeed"              "1.0"
+    Option          "AccelFactor"           "0.075"
+    Option          "TapButton1"            "1"
+    Option          "TapButton2"            "2"     # multitouch
+    Option          "TapButton3"            "3"     # multitouch
+    Option          "VertTwoFingerScroll"   "1"     # multitouch
+    Option          "HorizTwoFingerScroll"  "1"     # multitouch
+    Option          "VertEdgeScroll"        "1"
+    Option          "CoastingSpeed"         "8"
+    Option          "CornerCoasting"        "1"
+    Option          "CircularScrolling"     "1"
+    Option          "CircScrollTrigger"     "7"
+    Option          "EdgeMotionUseAlways"   "1"
+    Option          "LBCornerButton"        "8"     # browser "back" btn
+    Option          "RBCornerButton"        "9"     # browser "forward" btn
+        
+EndSection
+
+Section "InputDevice"
+        Identifier  "Mouse0"
+        Driver      "mouse"
+        Option      "Protocol" "auto"
+        Option      "Device" "/dev/sysmouse"
+        Option      "ZAxisMapping" "4 5 6 7"
+        Option "Emulate3Buttons"
+EndSection 
+
+Section "Monitor"
+	Identifier   "Monitor0"
+	VendorName   "Monitor Vendor"
+	ModelName    "Monitor Model"
+EndSection
+
+#Section "Monitor"
+#	Identifier   "Monitor1"
+#	VendorName   "Monitor Vendor"
+#	ModelName    "Monitor Model"
+#EndSection
+
+Section "Device"
+        ### Available Driver options are:-
+        ### Values: <i>: integer, <f>: float, <bool>: "True"/"False",
+        ### <string>: "String", <freq>: "<f> Hz/kHz/MHz",
+        ### <percent>: "<f>%"
+        ### [arg]: arg optional
+        #Option     "ShadowFB"           	# [<bool>]
+        #Option     "DefaultRefresh"     	# [<bool>]
+        #Option     "ModeSetClearScreen" 	# [<bool>]
+	Identifier  "Card0"
+	Driver      "intel"
+	BusID       "PCI:0:2:0"
+EndSection
+
+Section "Device"
+        ### Available Driver options are:-
+        ### Values: <i>: integer, <f>: float, <bool>: "True"/"False",
+        ### <string>: "String", <freq>: "<f> Hz/kHz/MHz",
+        ### <percent>: "<f>%"
+        ### [arg]: arg optional
+        #Option     "ShadowFB"           	# [<bool>]
+        #Option     "DefaultRefresh"     	# [<bool>]
+        #Option     "ModeSetClearScreen" 	# [<bool>]
+	Identifier  "Card1"
+	Driver      "nvidia"
+	BusID       "PCI:1:0:0"
+EndSection
+
+Section "Screen"
+	Identifier "Screen0"
+	Device     "Card0"
+	Monitor    "Monitor0"
+	SubSection "Display"
+		Viewport   0 0
+		Depth     1
+	EndSubSection
+	SubSection "Display"
+		Viewport   0 0
+		Depth     4
+	EndSubSection
+	SubSection "Display"
+		Viewport   0 0
+		Depth     8
+	EndSubSection
+	SubSection "Display"
+		Viewport   0 0
+		Depth     15
+	EndSubSection
+	SubSection "Display"
+		Viewport   0 0
+		Depth     16
+	EndSubSection
+	SubSection "Display"
+		Viewport   0 0
+		Depth     24
+	EndSubSection
+EndSection
+
+Section "Screen"
+	Identifier "Screen1"
+	Device     "Card1"
+	Monitor    "Monitor1"
+	SubSection "Display"
+		Viewport   0 0
+		Depth     1
+	EndSubSection
+	SubSection "Display"
+		Viewport   0 0
+		Depth     4
+	EndSubSection
+	SubSection "Display"
+		Viewport   0 0
+		Depth     8
+	EndSubSection
+	SubSection "Display"
+		Viewport   0 0
+		Depth     15
+	EndSubSection
+	SubSection "Display"
+		Viewport   0 0
+		Depth     16
+	EndSubSection
+	SubSection "Display"
+		Viewport   0 0
+		Depth     24
+	EndSubSection
+EndSection
+

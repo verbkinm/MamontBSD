@@ -1,0 +1,39 @@
+## FreeBSD SLiM Theme based on Gentoo SLiM Theme
+## Author: Edward Tjornhammar (e@cube2.se)
+## Original Graphics: Randy Belk (randy.belk@gmail.com)
+## Original Author: Joshua Saddler (nightmorph@gentoo.org)
+
+msg_color               #eeeeee
+msg_font                Verdana:size=10:bold:dpi=96
+msg_x                   50%
+msg_y                   70%
+
+background_style        tile
+background_color        #000000
+
+input_font              Verdana:size=10:bold:dpi=96
+input_fgcolor           #000000
+input_panel_x           50%
+input_panel_y           50%
+input_name_x            100
+input_name_y            230
+input_pass_x            -1
+input_pass_y            -1
+
+username_font           Verdana:size=10:bold:dpi=96
+username_color        	#eeeeee
+username_x              100
+username_y              200
+password_x              100
+password_y              200
+username_msg            Логин:
+password_msg            Пароль:
+
+# Welcome message
+welcome_font            Verdana:size=24:dpi=75
+welcome_color           #f9f9f9
+welcome_x               50%
+welcome_y               300
+#welcome_shadow_xoffset 1
+#welcome_shadow_yoffset 1
+#welcome_shadow_color   #702342
